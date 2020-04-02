@@ -19,7 +19,7 @@ metadata {
          input "apiURL", "text", title: "Base URL to Telegram Bot API:", description: "", defaultValue: "https://api.telegram.org/bot", required: true, displayDuringSetup: true
          input "token", "text", title: "Unique authentication bot token:", description: "", defaultValue: "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11", required: true, displayDuringSetup: true
          input "chatID", "number", title: "Chat ID of the receiver:", description: "", defaultValue: "1234567890", required: true, displayDuringSetup: true
-         input("logEnable", "bool", title: "Enable Debug Logging?:", required: true)
+         input "logEnable", "bool", title: "Enable Debug Logging?:", required: true
     }
 }
 
@@ -47,7 +47,7 @@ def deviceNotification(text){
             if(resp.status != 200) {
                 log.error "Response Code: ${resp.status}"
             } else {
-			    if(logEnable) log.debug "Telegram message sent!"
+                if(logEnable) log.debug "Telegram message sent!"
             }
 		}
 	} catch (e) {

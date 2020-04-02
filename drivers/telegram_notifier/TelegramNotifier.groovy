@@ -16,9 +16,9 @@ metadata {
         capability "Notification"
     }
     preferences {  
-         input "apiURL", "text", title: "Base URL to Telegram Bot API:", description: "", defaultValue: "https://api.telegram.org/bot", required: true, displayDuringSetup: true
-         input "token", "text", title: "Unique authentication bot token:", description: "", defaultValue: "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11", required: true, displayDuringSetup: true
-         input "chatID", "number", title: "Chat ID of the receiver:", description: "", defaultValue: "1234567890", required: true, displayDuringSetup: true
+         input "apiURL", "text", title: "Base URL to Telegram Bot API:", description: "This should not need to be changed.", defaultValue: "https://api.telegram.org/bot", required: true, displayDuringSetup: true
+         input "token", "text", title: "Unique authentication bot token:", description: "Contact @BotFather on Telegram to obtain a bot token.", defaultValue: "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11", required: true, displayDuringSetup: true
+         input "chatID", "number", title: "Chat ID of the receiver:", description: "Contact @myidbot on Telegram to get your Telegram ID.", defaultValue: "1234567890", required: true, displayDuringSetup: true
          input "logEnable", "bool", title: "Enable Debug Logging?:", required: true
     }
 }

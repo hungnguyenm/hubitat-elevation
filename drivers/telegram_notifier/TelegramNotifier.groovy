@@ -13,6 +13,7 @@ metadata {
         author: "Hung Nguyen",
         importUrl: "https://github.com/hungnguyenm/hubitat-elevation/raw/master/drivers/telegram_notifier/TelegramNotifier.groovy"
     ) {
+        capability "Actuator"
         capability "Notification"
     }
     preferences {  

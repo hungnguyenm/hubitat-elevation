@@ -39,13 +39,13 @@ def initialize() {
 def on() {
     String uri = getCommandUri(true)
     try {
-        if(logEnable) log.debug "Sending `${uri}`"
+        if (logEnable) log.debug "Sending `${uri}`"
         httpGet(uri) { resp ->
-            if(resp.status != 200) {
+            if (resp.status != 200) {
                 log.error "Response Code: ${resp.status}"
             } else {
                 String response = "${resp.data}"
-                if(logEnable) log.debug "Response: ${response}"
+                if (logEnable) log.debug "Response: ${response}"
                 updateState(response)
             }
         }
@@ -57,13 +57,13 @@ def on() {
 def off() {
     String uri = getCommandUri(false)
     try {
-        if(logEnable) log.debug "Sending `${uri}`"
+        if (logEnable) log.debug "Sending `${uri}`"
         httpGet(uri) { resp ->
-            if(resp.status != 200) {
+            if (resp.status != 200) {
                 log.error "Response Code: ${resp.status}"
             } else {
                 String response = "${resp.data}"
-                if(logEnable) log.debug "Response: ${response}"
+                if (logEnable) log.debug "Response: ${response}"
                 updateState(response)
             }
         }
@@ -75,13 +75,13 @@ def off() {
 def refresh() {
     String uri = getBaseUri()
     try {
-        if(logEnable) log.debug "Sending `${uri}`"
+        if (logEnable) log.debug "Sending `${uri}`"
         httpGet(uri) { resp ->
-            if(resp.status != 200) {
+            if (resp.status != 200) {
                 log.error "Response Code: ${resp.status}"
             } else {
                 String response = "${resp.data}"
-                if(logEnable) log.debug "Response: ${response}"
+                if (logEnable) log.debug "Response: ${response}"
                 updateState(response)
             }
         }
@@ -100,9 +100,9 @@ def getCommandUri(boolean turnOn) {
     return "${baseUri}&value=${value}"
 }
 
-def updateState(response) {
+def updateState(String response) {
     String currentState = (response == "0") ? "off" : "on"
-    if(currentState != device.currentValue("switch")) {
+    if (currentState != device.currentValue("switch")) {
         sendEvent(name: "switch", value: currentState, isStateChange: true)
     }
 }

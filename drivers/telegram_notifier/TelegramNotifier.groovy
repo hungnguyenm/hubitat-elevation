@@ -36,19 +36,19 @@ def initialize() {
     state.version = version()
 }
 
-def deviceNotification(text){
+def deviceNotification(text) {
     def uri = "${settings.apiURL}${settings.token}/sendMessage"
     def params = [
         "uri": uri,
         "body": [chat_id: "${settings.chatID}", text: "${text}"]
     ]
     try {
-        if(logEnable) log.debug "URL: ${uri} - Chat ID: ${settings.chatID} - text: '${text}'"
+        if (logEnable) log.debug "URL: ${uri} - Chat ID: ${settings.chatID} - text: '${text}'"
         httpPostJson(params) { resp ->
-            if(resp.status != 200) {
+            if (resp.status != 200) {
                 log.error "Response Code: ${resp.status}"
             } else {
-                if(logEnable) log.debug "Telegram message sent!"
+                if (logEnable) log.debug "Telegram message sent!"
             }
         }
     } catch (e) {

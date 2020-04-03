@@ -9,7 +9,7 @@ def version() {"v1.0.20200402a"}
 metadata {
     definition (
         name: "Telegram Notifier", 
-        namespace: "hungnguyen", 
+        namespace: "hungnguyenm", 
         author: "Hung Nguyen",
         importUrl: "https://github.com/hungnguyenm/hubitat-elevation/raw/master/drivers/telegram_notifier/TelegramNotifier.groovy"
     ) {
